@@ -1,0 +1,28 @@
+[Unit]
+Description=EMASESA LaFuenteDePias BG96 QMI Modem Service
+Documentation=file:/opt/EMASESA/lafuentedepias/docs/modem.md
+After=local-fs.target systemd-udev-settle.service
+Wants=systemd-udev-settle.service
+RequiresMountsFor=/opt/EMASESA/lafuentedepias
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=root
+Group=root
+
+ExecStartPre=/bin/sleep 10
+ExecStart=/opt/EMASESA/lafuentedepias/modem/start.sh
+ExecStop=/opt/EMASESA/lafuentedepias/modem/stop.sh
+
+TimeoutStartSec=180
+TimeoutStopSec=60
+
+Restart=on-failure
+RestartSec=30
+
+StandardOutput=append:/opt/EMASESA/lafuentedepias/logs/modem.log
+StandardError=append:/opt/EMASESA/lafuentedepias/logs/modem.log
+
+[Install]
+WantedBy=multi-user.target

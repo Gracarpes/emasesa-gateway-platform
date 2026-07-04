@@ -1,0 +1,29 @@
+# Secrets
+*.token
+*.key
+*.pem
+*.crt
+*.json
+.env
+passwd
+credentials*
+flows_cred.json
+
+# Logs
+logs/*
+*.log
+
+# Node-RED runtime
+.node-red/
+node_modules/
+
+# Backups
+backup/*
+*.bak
+*.old
+
+# System/temp
+.DS_Store
+*.swp
+*.tmp
+__pycache__/
