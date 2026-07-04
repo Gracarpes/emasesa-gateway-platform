@@ -1,0 +1,14 @@
+[Unit]
+Description=cloudflared
+After=bg96.service
+Wants=bg96.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cloudflared --no-autoupdate tunnel run --token TU_TOKEN_CLOUDFLARE
+Restart=always
+RestartSec=10s
+TimeoutStartSec=30
+
+[Install]
+WantedBy=multi-user.target
