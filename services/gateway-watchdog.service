@@ -1,0 +1,8 @@
+[Unit]
+Description=EMASESA Gateway Watchdog
+After=bg96.service
+Wants=bg96.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/EMASESA/lafuentedepias/scripts/watchdog.sh
