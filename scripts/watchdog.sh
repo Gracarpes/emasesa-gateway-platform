@@ -127,5 +127,6 @@ fi
 check_service cloudflared.service
 check_service nodered.service
 check_service mosquitto.service
+"$BASE/scripts/health_status.sh" >/dev/null 2>&1 || true
 
 log "===== WATCHDOG CHECK END ====="
